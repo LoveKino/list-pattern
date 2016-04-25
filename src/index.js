@@ -12,6 +12,7 @@
  * exp = item exp | item
  * item = element | list
  * list = [A-Z][a-zA-Z0-9]* | ...
+ * element = [a-z][a-zA-Z0-9]* | _
  *
  * eg1: aXb, for list [1, 2, 3]
  * we have: a = 1, x = [2], b=3
@@ -30,9 +31,9 @@ let parse = (sentence) => {
     for (let i = 0; i < words.length; i++) {
         let word = words[i];
         word = word.trim();
-        if(word) {
+        if (word) {
             let type = 'elem';
-            if(isListToken(word)) {
+            if (isListToken(word)) {
                 type = 'list';
             }
             tokens.push({
@@ -45,3 +46,5 @@ let parse = (sentence) => {
 };
 
 let isListToken = word => (word[0] >= 'A' && word[0] <= 'Z') || word === '...';
+
+let isElemToken = word => (word[0] >= 'a' && word[0] <= 'z') || word === '_';
