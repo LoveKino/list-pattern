@@ -1,0 +1,31 @@
+{
+  "name": "list-pattern",
+  "version": "0.0.1",
+  "description": "A pattern to deconstruction list",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoveKino/list-pattern.git"
+  },
+  "keywords": [
+    "list",
+    "pattern",
+    "array"
+  ],
+  "author": "ddchen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LoveKino/list-pattern/issues"
+  },
+  "homepage": "https://github.com/LoveKino/list-pattern#readme",
+  "devDependencies": {
+    "defcomment": "0.0.9",
+    "mocha": "^2.4.5"
+  }
+}
