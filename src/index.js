@@ -103,9 +103,17 @@ let deconstruct = (pattern, list) => {
     let tokens = getTokens(pattern);
     let listVariables = getListVariables(tokens);
     let elemVariables = getElemVariables(tokens);
-    
-    if(!listVariables.length) {
+
+    let line = [];
+
+    if (!listVariables.length) {
+        if (elemVariables.length !== list.length) {
+            return null;
+        } else {
+            line = list.slice(0);
+        }
     } else {
+        let groupLenMatrix = solve(listVariables.length, list.length);
     }
 };
 
