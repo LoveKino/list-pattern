@@ -27,5 +27,8 @@
   "devDependencies": {
     "defcomment": "0.0.9",
     "mocha": "^2.4.5"
+  },
+  "dependencies": {
+    "tokenspliter": "0.0.4"
   }
 }
