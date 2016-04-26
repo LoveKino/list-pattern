@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/LoveKino/list-pattern#readme",
   "devDependencies": {
+    "cl-jsoneq": "0.0.2",
     "defcomment": "0.0.9",
     "mocha": "^2.4.5"
   },
