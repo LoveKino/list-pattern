@@ -2,20 +2,60 @@
 
 A pattern to deconstruction list
 
+## goal
+
+Simplely write some grammer to divide a list. Get all possibilities about the dividing.
+
+## example
+
+### eg: 'a X b' as a pattern to divide [1, 2, 3, 4]
+
+All possibilities: [ [1, [2, 3], 4] ].
+There only one possible [1, [2, 3], 4], a is 1, X is [2, 3] and b is 4.
+
+- rule: the word stands for element or sublist
+
+`the word start with capital letter stands for list`
+
+`the word start with lower letter stands for element`
+
+In this example, a and b stands for one element of [1, 2, 3, 4], X stands for sublist of [1, 2, 3, 4].
+
+- rule: the expression stand for a way to divide list
+
+`a X b` stands for a way to divide list, we can say 'one element (a) at first, then follow some elements (X), and end with one element.'
+
+### eg: 'head Mid Tail' as a pattern to divide [11, 32, 30]
+
+All possibilities:
+
+```js
+[
+    [11, [], [32, 30]],
+    [11, [32], [30]],
+    [11, [32, 30], []],
+]
+```
+
 ## install
 
 `npm i list-pattern --save`
 
-## example
+## code example
+
+Api all can return all possibilities.
+
+Api filter can return all possibilities of the items you care about.
 
 ```js
 let pattern = require('list-pattern');
-let filter = pattern.filter;
+let all = pattern.all;
 
-let m = filter('...i...j...', [1, 2, 3, 4]);
+let m1 = all('Prev i Mid j Tail', [1, 2, 3, 4]);
+let m2 = filter(['i', 'j'], 'Prev i Mid j Tail', [1, 2, 3, 4]);
 
-console.log(m);
-/* result are:
+console.log(m1);
+/* result is:
 [
     [
         [], 1, [], 2, [3, 4]
@@ -37,4 +77,26 @@ console.log(m);
     ]
 ]
 */
+
+console.log(m2);
+/* result is:
+[
+    [1, 2],
+    [1, 3],
+    [1, 4],
+    [2, 3],
+    [2, 4],
+    [3, 4]
+]
+*/
 ```
+
+## two special symbols
+
+Words in pattern expresion like 'a X b' can not repeat.
+
+But '...' and '_' can repeat.
+
+'...' stands for sublist like word starts with capital letter.
+
+'_' stands for element like word starts with low case letter.
