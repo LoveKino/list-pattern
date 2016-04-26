@@ -45,7 +45,7 @@ All possibilities:
 
 Api all can return all possibilities.
 
-Api filter can return all possibilities of the items you care about.
+Api filter can return all possibilities of the items you cared about.
 
 ```js
 let pattern = require('list-pattern');
@@ -93,10 +93,10 @@ console.log(m2);
 
 ## two special symbols
 
-Words in pattern expresion like 'a X b' can not repeat.
+Words in pattern expresion like 'a X b' can not be repeated.
 
-But '...' and '_' can repeat.
+But `...` and `_` can be repeated.
 
-'...' stands for sublist like word starts with capital letter.
+`...` stands for sublist like word starts with capital letter.
 
-'_' stands for element like word starts with low case letter.
+`_` stands for element like word starts with low case letter.
