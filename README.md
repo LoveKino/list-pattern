@@ -3,6 +3,7 @@
 A pattern to deconstruction list
 
 [![Build Status](https://travis-ci.org/LoveKino/list-pattern.svg)](https://travis-ci.org/LoveKino/list-pattern.svg)
+[![Coverage Status](https://coveralls.io/repos/github/LoveKino/list-pattern/badge.svg?branch=master)](https://coveralls.io/github/LoveKino/list-pattern?branch=master)
 
 ## goal
 
