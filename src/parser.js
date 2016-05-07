@@ -142,18 +142,18 @@ let getSymbolMap = (tokens) => {
             lexicon,
             index: i
         };
-        if (type !== 'under' && type !== 'ellipsis') {
-            if (symbolMap[lexicon]) {
-                throw new Error('repeated lexicon for element or group. lexicon is ' + lexicon);
-            } else {
-                symbolMap[lexicon] = item;
-            }
-        } else if (type === 'ellipsis') {
+        if (type === 'ellipsis') {
             symbolMap['...'] = symbolMap['...'] || [];
             symbolMap['...'].push(item);
         } else if (type === 'under') {
             symbolMap['_'] = symbolMap['_'] || [];
             symbolMap['_'].push(item);
+        } else {
+            if (symbolMap[lexicon]) {
+                throw new Error('repeated lexicon for element or group. lexicon is ' + lexicon);
+            } else {
+                symbolMap[lexicon] = item;
+            }
         }
     }
     return symbolMap;

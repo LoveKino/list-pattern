@@ -26,9 +26,6 @@
 
 let solve = (m, n) => {
     let ret = [];
-    if (n < 0 || m <= 0) {
-        return null;
-    }
     if (m === 1) {
         ret.push([n]);
     } else {

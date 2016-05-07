@@ -4,6 +4,14 @@ let reduce = require('./reduce');
 
 let deconstruct = reduce.deconstruct;
 
+let match = (pattern, list) => {
+    let matrix = deconstruct(pattern, list).matrix;
+    if(matrix.length) {
+        return true;
+    }
+    return false;
+};
+
 let all = (pattern, list) => {
     let matrix = deconstruct(pattern, list).matrix;
     return matrix;
@@ -36,5 +44,6 @@ let filter = (targets, pattern, list) => {
 module.exports = {
     all,
     filter,
-    deconstruct
+    deconstruct,
+    match
 };

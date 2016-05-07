@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha test/**/*.js"
+    "test": "mocha test/**/*.js",
+    "cover": "istanbul cover _mocha"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "cl-jsoneq": "0.0.2",
     "defcomment": "0.0.9",
+    "istanbul": "^0.4.3",
     "mocha": "^2.4.5"
   },
   "dependencies": {
