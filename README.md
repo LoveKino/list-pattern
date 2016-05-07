@@ -2,6 +2,8 @@
 
 A pattern to deconstruction list
 
+[![Build Status](https://travis-ci.org/LoveKino/list-pattern.svg)](https://travis-ci.org/LoveKino/list-pattern.svg)
+
 ## goal
 
 Simplely write some grammer to divide a list. Get all possibilities about the dividing.

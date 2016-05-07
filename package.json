@@ -27,9 +27,11 @@
   "homepage": "https://github.com/LoveKino/list-pattern#readme",
   "devDependencies": {
     "cl-jsoneq": "0.0.2",
+    "coveralls": "^2.11.9",
     "defcomment": "0.0.9",
     "istanbul": "^0.4.3",
-    "mocha": "^2.4.5"
+    "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0"
   },
   "dependencies": {
     "tokenspliter": "0.0.4"
