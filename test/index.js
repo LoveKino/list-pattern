@@ -11,8 +11,12 @@ let match = pattern.match;
 describe('list-pattern', () => {
     it('simple', () => {
         let m = all('a X b', [1, 2, 3, 4]);
+        let n = all('a b c', [1, 2, 3]);
         assert.equal(jsoneq(m, [
             [1, [2, 3], 4]
+        ]), true);
+        assert.equal(jsoneq(n, [
+            [1, 2, 3]
         ]), true);
     });
 

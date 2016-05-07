@@ -6,26 +6,45 @@ let solve = require('./solve');
 let parse = parser.parse;
 
 let deconstruct = (pattern, list) => {
-    if (!isArray(list)) {
-        throw new TypeError('expect array for list.');
-    }
-    let ast = parse(pattern);
     let matrix = null;
-    if (ast.elementNum > list.length) {
+    let ret = check(pattern, list);
+    let ast = ret.ast;
+    if (!ret.match) {
         matrix = [];
-    } else if (ast.groupNum === 0) {
-        if (ast.elementNum === list.length) {
+    } else {
+        if (ast.groupNum === 0 && ast.elementNum === list.length) {
             matrix = [list.slice(0)];
         } else {
-            matrix = [];
+            let lens = solve(ast.groupNum, list.length - ast.elementNum);
+            matrix = getDistribution(ast.tokens, lens, list);
         }
-    } else {
-        let lens = solve(ast.groupNum, list.length - ast.elementNum);
-        matrix = getDistribution(ast.tokens, lens, list);
     }
     return {
         matrix,
         symbolMap: ast.symbolMap
+    };
+};
+
+let check = (pattern, list) => {
+    if (!isArray(list)) {
+        throw new TypeError('expect array for list.');
+    }
+    let ast = parse(pattern);
+
+    if (ast.elementNum > list.length) {
+        return {
+            match: false,
+            ast
+        };
+    } else if (ast.groupNum === 0 && ast.elementNum !== list.length) {
+        return {
+            match: false,
+            ast
+        };
+    }
+    return {
+        match: true,
+        ast
     };
 };
 
@@ -82,5 +101,6 @@ let getDistribution = (tokens, lens, list) => {
 let isArray = v => v && typeof v === 'object' && typeof v.length === 'number';
 
 module.exports = {
-    deconstruct
+    deconstruct,
+    check
 };

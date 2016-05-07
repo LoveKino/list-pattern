@@ -1,6 +1,6 @@
 {
   "name": "list-pattern",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A pattern to deconstruction list",
   "main": "index.js",
   "directories": {

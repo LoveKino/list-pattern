@@ -4,13 +4,7 @@ let reduce = require('./reduce');
 
 let deconstruct = reduce.deconstruct;
 
-let match = (pattern, list) => {
-    let matrix = deconstruct(pattern, list).matrix;
-    if(matrix.length) {
-        return true;
-    }
-    return false;
-};
+let match = (pattern, list) => !!reduce.check(pattern, list).match;
 
 let all = (pattern, list) => {
     let matrix = deconstruct(pattern, list).matrix;
